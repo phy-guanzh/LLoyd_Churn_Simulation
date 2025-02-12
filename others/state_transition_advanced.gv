@@ -1,0 +1,68 @@
+// State Transition Diagram
+digraph {
+	bgcolor=white compound=true fontname=Arial rankdir=LR splines=ortho
+	subgraph cluster_inquiry {
+		bgcolor="#F8F8F8" color="#E0E0E0" fontname="Arial Bold" fontsize=14 label="Inquiry 类型" style="rounded,filled"
+		Inquiry_Resolved
+		Inquiry_Unresolved
+	}
+	subgraph cluster_feedback {
+		bgcolor="#F8F8F8" color="#E0E0E0" fontname="Arial Bold" fontsize=14 label="Feedback 类型" style="rounded,filled"
+		Feedback_Resolved
+		Feedback_Unresolved
+	}
+	subgraph cluster_complaint {
+		bgcolor="#F8F8F8" color="#E0E0E0" fontname="Arial Bold" fontsize=14 label="Complaint 类型" style="rounded,filled"
+		Complaint_Resolved
+		Complaint_Unresolved
+	}
+	Inquiry_Resolved [label="Inquiry
+Resolved" color="#2F4F4F" fillcolor="#90EE90:#32CD32" fontname="Arial Bold" fontsize=12 gradientangle=45 penwidth=1.5 shape=box style="filled,rounded"]
+	Inquiry_Unresolved [label="Inquiry
+Unresolved" color="#2F4F4F" fillcolor="#32CD32:#006400" fontname="Arial Bold" fontsize=12 gradientangle=45 penwidth=1.5 shape=box style="filled,rounded"]
+	Feedback_Resolved [label="Feedback
+Resolved" color="#2F4F4F" fillcolor="#87CEEB:#4169E1" fontname="Arial Bold" fontsize=12 gradientangle=45 penwidth=1.5 shape=box style="filled,rounded"]
+	Feedback_Unresolved [label="Feedback
+Unresolved" color="#2F4F4F" fillcolor="#4169E1:#000080" fontname="Arial Bold" fontsize=12 gradientangle=45 penwidth=1.5 shape=box style="filled,rounded"]
+	Complaint_Resolved [label="Complaint
+Resolved" color="#2F4F4F" fillcolor="#FFB6C1:#FF4500" fontname="Arial Bold" fontsize=12 gradientangle=45 penwidth=1.5 shape=box style="filled,rounded"]
+	Complaint_Unresolved [label="Complaint
+Unresolved" color="#2F4F4F" fillcolor="#FF4500:#8B0000" fontname="Arial Bold" fontsize=12 gradientangle=45 penwidth=1.5 shape=box style="filled,rounded"]
+	Retained [label=Retained color="#2F4F4F" fillcolor="#32CD32" fontname="Arial Bold" fontsize=12 penwidth=1.5 shape=ellipse style=filled]
+	Churned [label=Churned color="#2F4F4F" fillcolor="#FF4500" fontname="Arial Bold" fontsize=12 penwidth=1.5 shape=ellipse style=filled]
+	Inquiry_Resolved -> Inquiry_Resolved [label=0.05 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.2694610778443114 style=dashed]
+	Inquiry_Resolved -> Inquiry_Unresolved [label=0.06 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.3237410071942446 style=dashed]
+	Inquiry_Resolved -> Complaint_Unresolved [label=0.09 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.4748603351955307 style=dashed]
+	Inquiry_Unresolved -> Feedback_Resolved [label=0.05 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.2512562814070352 style=dashed]
+	Inquiry_Unresolved -> Complaint_Unresolved [label=0.06 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.30726256983240224 style=dashed]
+	Feedback_Resolved -> Inquiry_Unresolved [label=0.06 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.3237410071942446 style=dashed]
+	Feedback_Resolved -> Feedback_Resolved [label=0.06 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.2763819095477387 style=dashed]
+	Feedback_Resolved -> Feedback_Unresolved [label=0.11 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.5279503105590062 style=dashed]
+	Feedback_Resolved -> Complaint_Resolved [label=0.08 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.41666666666666663 style=dashed]
+	Feedback_Resolved -> Complaint_Unresolved [label=0.08 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.3910614525139665 style=dashed]
+	Feedback_Unresolved -> Inquiry_Resolved [label=0.08 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.38922155688622756 style=dashed]
+	Feedback_Unresolved -> Inquiry_Unresolved [label=0.05 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.2517985611510791 style=dashed]
+	Feedback_Unresolved -> Feedback_Resolved [label=0.08 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.37688442211055273 style=dashed]
+	Feedback_Unresolved -> Feedback_Unresolved [label=0.06 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.3105590062111801 style=dashed]
+	Feedback_Unresolved -> Complaint_Resolved [label=0.07 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.35256410256410253 style=dashed]
+	Complaint_Resolved -> Inquiry_Unresolved [label=0.06 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.3237410071942446 style=dashed]
+	Complaint_Resolved -> Complaint_Resolved [label=0.05 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.2564102564102564 style=dashed]
+	Complaint_Unresolved -> Inquiry_Unresolved [label=0.06 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.28776978417266186 style=dashed]
+	Complaint_Unresolved -> Feedback_Resolved [label=0.08 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.4020100502512563 style=dashed]
+	Complaint_Unresolved -> Complaint_Resolved [label=0.10 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.4807692307692308 style=dashed]
+	Complaint_Unresolved -> Complaint_Unresolved [label=0.06 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.30726256983240224 style=dashed]
+	Retained -> Inquiry_Resolved [label=0.58 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=2.904191616766467 style=solid]
+	Retained -> Inquiry_Unresolved [label=0.55 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=2.733812949640288 style=solid]
+	Retained -> Feedback_Resolved [label=0.51 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=2.537688442211055 style=solid]
+	Retained -> Feedback_Unresolved [label=0.55 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=2.7329192546583854 style=solid]
+	Retained -> Complaint_Resolved [label=0.51 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=2.564102564102564 style=solid]
+	Retained -> Complaint_Unresolved [label=0.46 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=2.3184357541899443 style=solid]
+	Retained -> Retained [label=1.00 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=5.0 style=solid]
+	Churned -> Inquiry_Resolved [label=0.13 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.6287425149700598 style=dashed]
+	Churned -> Inquiry_Unresolved [label=0.12 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.6115107913669064 style=dashed]
+	Churned -> Feedback_Resolved [label=0.16 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.7788944723618091 style=dashed]
+	Churned -> Feedback_Unresolved [label=0.14 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.7142857142857142 style=dashed]
+	Churned -> Complaint_Resolved [label=0.12 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.576923076923077 style=dashed]
+	Churned -> Complaint_Unresolved [label=0.18 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=0.893854748603352 style=dashed]
+	Churned -> Churned [label=1.00 arrowhead=vee arrowsize=0.8 color="#708090" fontname=Arial fontsize=10 penwidth=5.0 style=solid]
+}
